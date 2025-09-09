@@ -43,6 +43,18 @@
     z-index: 1030;
 }
 
+/* Punto y coma estilo hacker */
+.code-semicolon {
+    font-size: 1.6em;
+    /* más grande que el texto */
+    color: #00ff88;
+    /* verde hacker */
+    font-weight: bold;
+    text-shadow: 0 0 6px #00ff88, 0 0 12px #00ff88;
+    margin-left: 2px;
+}
+
+
 /* Carousel */
 #techCarousel .carousel-item {
     background: #0b1220;
