@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ramirezvi — Tecnología & Consultoría</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-ink text-light">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-ink border-bottom border-secondary sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+                <img src="assets/logoRv2.png" alt="RV" class="logo-glow">
+                <span class="fw-semibold">ramirezvi;</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portafolio">Portafolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-outline-light btn-sm" href="mailto:ricardo@ramirezvi.com">Escríbeme</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO + CAROUSEL -->
+    <header id="home" class="position-relative">
+        <div id="techCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4500"
+            data-bs-pause="hover">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/carousel/cr11.png" class="d-block w-100 carousel-img" alt="Desarrollo de Software">
+                    <div class="carousel-caption d-md-block bg-caption-dark">
+                        <h1 class="display-5 fw-black">Desarrollo de Software</h1>
+                        <p class="lead mb-3">Arquitectura limpia, pruebas y despliegue continuo.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/carousel/cr22.png" class="d-block w-100 carousel-img"
+                        alt="Bases de Datos & Analítica">
+                    <div class="carousel-caption d-md-block bg-caption-dark">
+                        <h1 class="display-6 fw-bold">Bases de Datos & Analítica</h1>
+                        <p class="lead">Modelado, tuning y PL/pgSQL en producción.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/carousel/cr33.png" class="d-block w-100 carousel-img" alt="Integración de APIs">
+                    <div class="carousel-caption d-md-block bg-caption-dark">
+                        <h1 class="display-6 fw-bold">Integración de APIs</h1>
+                        <p class="lead">Wolkvox, Issabel/Asterisk, pagos y servicios SRI.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#techCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#techCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="container py-5">
+        <h2 class="h1 fw-bold text-white">Servicios</h2>
+        <p class="text-secondary">Cobertura end-to-end: desde la idea al despliegue. Integraciones, rendimiento y datos
+            confiables.</p>
+        <div class="row g-4 mt-1">
+            <div class="col-sm-6 col-lg-4">
+                <div class="card card-dark h-100">
+                    <div class="card-body">
+                        <div class="icon-box text-info"><i class="bi bi-code-slash"></i></div>
+                        <h3 class="h5 text-white">Desarrollo de Software</h3>
+                        <p class="text-secondary small">Java, Python, Django/React; arquitectura limpia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card card-dark h-100">
+                    <div class="card-body">
+                        <div class="icon-box text-primary"><i class="bi bi-database"></i></div>
+                        <h3 class="h5 text-white">PostgreSQL</h3>
+                        <p class="text-secondary small">Modelado, tuning, PL/pgSQL, índices y particiones.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card card-dark h-100">
+                    <div class="card-body">
+                        <div class="icon-box text-success"><i class="bi bi-link-45deg"></i></div>
+                        <h3 class="h5 text-white">Integración de APIs</h3>
+                        <p class="text-secondary small">Wolkvox, Issabel/Asterisk, pasarelas y SRI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+    <section id="portafolio" class="container pb-5">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+            <div>
+                <h2 class="h1 fw-bold text-white mb-1">Portafolio</h2>
+                <p class="text-secondary mb-0">Módulos y sistemas recientes.</p>
+            </div>
+            <a href="#contacto" class="btn btn-outline-light">¿Quieres algo similar?</a>
+        </div>
+
+        <div class="row g-4 mt-1">
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-dark h-100 overflow-hidden">
+                    <img src="assets/portfolio/p1.jpg" class="card-img-top portfolio-img"
+                        alt="Gestiones General por Día">
+                    <div class="card-body">
+                        <h3 class="h6 text-white">Gestiones General por Día</h3>
+                        <p class="text-secondary small">Dashboard con pivots y funciones PL/pgSQL.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-dark h-100 overflow-hidden">
+                    <img src="assets/portfolio/p2.jpg" class="card-img-top portfolio-img"
+                        alt="Normalización de Teléfonos">
+                    <div class="card-body">
+                        <h3 class="h6 text-white">Normalización de Teléfonos</h3>
+                        <p class="text-secondary small">Reglas y limpieza; reportes y logs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-dark h-100 overflow-hidden">
+                    <img src="assets/portfolio/p3.jpg" class="card-img-top portfolio-img"
+                        alt="Integración Wolkvox/Issabel">
+                    <div class="card-body">
+                        <h3 class="h6 text-white">Integración Wolkvox/Issabel</h3>
+                        <p class="text-secondary small">Click-to-call, IVR y tracking de llamadas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-dark h-100 overflow-hidden">
+                    <img src="assets/portfolio/p4.jpg" class="card-img-top portfolio-img" alt="Eficiencia de Pagos">
+                    <div class="card-body">
+                        <h3 class="h6 text-white">Eficiencia de Pagos</h3>
+                        <p class="text-secondary small">Metas, KPIs y medición mensual.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-dark h-100 overflow-hidden">
+                    <img src="assets/portfolio/p5.jpg" class="card-img-top portfolio-img" alt="API de Compromisos">
+                    <div class="card-body">
+                        <h3 class="h6 text-white">API de Compromisos</h3>
+                        <p class="text-secondary small">Recepción POST desde JLOU a Django.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-dark h-100 overflow-hidden">
+                    <img src="assets/portfolio/p6.jpg" class="card-img-top portfolio-img"
+                        alt="Consultas con Filtros Avanzados">
+                    <div class="card-body">
+                        <h3 class="h6 text-white">Consultas con Filtros Avanzados</h3>
+                        <p class="text-secondary small">Búsqueda dinámica por múltiples criterios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="container pb-5">
+        <h2 class="h1 fw-bold text-white">Contacto</h2>
+        <div class="row g-4 mt-1">
+            <div class="col-lg-6">
+                <form class="row g-3" onsubmit="return sendForm(event)">
+                    <div class="col-sm-6"><label class="form-label">Nombre</label><input
+                            class="form-control bg-ink-2 text-light border-secondary" required></div>
+                    <div class="col-sm-6"><label class="form-label">Correo</label><input type="email"
+                            class="form-control bg-ink-2 text-light border-secondary" required></div>
+                    <div class="col-12"><label class="form-label">Empresa</label><input
+                            class="form-control bg-ink-2 text-light border-secondary"></div>
+                    <div class="col-12"><label class="form-label">Proyecto</label><textarea rows="5"
+                            class="form-control bg-ink-2 text-light border-secondary" required></textarea></div>
+                    <div class="col-12"><button class="btn btn-primary btn-lg">Enviar</button></div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="card card-dark h-100">
+                    <div class="card-body">
+                        <h3 class="h6 text-white mb-3">Información</h3>
+                        <ul class="list-unstyled text-secondary small mb-0">
+                            <li><i class="bi bi-geo-alt me-2"></i>Ecuador</li>
+                            <li><i class="bi bi-envelope me-2"></i>ricardo@ramirezvi.com</li>
+                            <li><i class="bi bi-github me-2"></i>github.com/rramirezvi</li>
+                            <li><i class="bi bi-browser-chrome me-2"></i>rramirezvi.github.io</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-top border-secondary py-4 text-center text-secondary small">
+        © <span id="year"></span> ramirezvi — Tecnología & Consultoría
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

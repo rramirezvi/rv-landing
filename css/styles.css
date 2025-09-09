@@ -1,0 +1,150 @@
+:root {
+    --ink: #0b1220;
+    --ink-2: #0f172a;
+    --sky: #38bdf8;
+    --emerald: #34d399;
+}
+
+/* Fondo */
+.bg-ink {
+    background: radial-gradient(1200px 600px at 5% 0%, rgba(56, 189, 248, .12), transparent),
+        radial-gradient(1200px 600px at 100% 100%, rgba(52, 211, 153, .10), transparent),
+        var(--ink);
+}
+
+.bg-ink-2 {
+    background: var(--ink-2);
+}
+
+/* Navbar */
+.navbar-brand .logo-glow {
+    height: 96px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, .45));
+}
+
+@media (min-width: 992px) {
+    .navbar-brand .logo-glow {
+        height: 112px;
+    }
+}
+
+.navbar-brand .fw-semibold {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 992px) {
+    .navbar-brand .fw-semibold {
+        font-size: 1.8rem;
+    }
+}
+
+.navbar {
+    z-index: 1030;
+}
+
+/* Carousel */
+#techCarousel .carousel-item {
+    background: #0b1220;
+}
+
+/* Todas las imágenes del carrusel */
+.carousel-img {
+    width: 100%;
+    height: calc(100vh - var(--nav-h));
+    /* ocupa casi toda la ventana */
+    object-position: center center;
+    display: block;
+}
+
+.object-cover {
+    object-fit: cover;
+    height: 80vh;
+}
+
+.bg-caption-dark {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .55), rgba(0, 0, 0, .65));
+    padding: 1rem 1.25rem;
+    border-radius: .75rem;
+    backdrop-filter: blur(4px);
+}
+
+/* Cards */
+.card-dark {
+    background: rgba(255, 255, 255, .04) !important;
+    border: 1px solid rgba(255, 255, 255, .12) !important;
+    border-radius: 16px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, .25);
+    overflow: hidden;
+}
+
+.icon-box {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .8rem;
+    background: rgba(56, 189, 248, .12);
+    border: 1px solid rgba(255, 255, 255, .12);
+    margin-bottom: .6rem;
+}
+
+.portfolio-img {
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    width: 100%;
+}
+
+/* Formularios oscuros */
+.form-control {
+    background-color: var(--ink-2) !important;
+    color: #f8f9fa !important;
+    border: 1px solid rgba(255, 255, 255, .2);
+}
+
+.form-control:focus {
+    background-color: var(--ink-2) !important;
+    color: #fff !important;
+    border-color: var(--sky);
+    box-shadow: 0 0 0 .2rem rgba(56, 189, 248, .25);
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+
+/* Scroll suave y offset por navbar */
+:root {
+    --nav-h: 96px;
+}
+
+section[id],
+header[id] {
+    scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Desktop: expandir y cubrir */
+@media (min-width: 768px) {
+    .carousel-img {
+        object-fit: cover;
+        /* llena todo el ancho */
+        max-height: 90vh;
+        /* no se sale de pantalla */
+    }
+}
+
+/* Móvil: ocupar ancho completo pero más bajo */
+@media (max-width: 767px) {
+    .carousel-img {
+        object-fit: cover;
+        height: 60vh;
+    }
+}
