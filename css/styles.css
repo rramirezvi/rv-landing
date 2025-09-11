@@ -1,13 +1,28 @@
+/* ===========================
+   Tema base / Variables
+   =========================== */
 :root {
     --ink: #0b1220;
     --ink-2: #0f172a;
     --sky: #38bdf8;
     --emerald: #34d399;
+    --nav-h: 72px;
+    /* valor base; se recalcula desde JS */
+    --vh: 1vh;
+    /* fallback; JS lo ajusta a innerHeight */
 }
 
-/* Fondo */
+/* Evita que los anclajes queden ocultos por la navbar en TODOS los navegadores */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 56px);
+}
+
+
+/* Fondo general */
 .bg-ink {
-    background: radial-gradient(1200px 600px at 5% 0%, rgba(56, 189, 248, .12), transparent),
+    background:
+        radial-gradient(1200px 600px at 5% 0%, rgba(56, 189, 248, .12), transparent),
         radial-gradient(1200px 600px at 100% 100%, rgba(52, 211, 153, .10), transparent),
         var(--ink);
 }
@@ -16,147 +31,325 @@
     background: var(--ink-2);
 }
 
-/* Navbar */
+body {
+    color: #e5e7eb;
+}
+
+/* ===========================
+   Navbar (más delgada)
+   =========================== */
+.navbar {
+    backdrop-filter: saturate(120%) blur(2px);
+    padding-block: .35rem;
+    /* reduce alto */
+}
+
 .navbar-brand .logo-glow {
-    height: 96px;
+    height: 56px;
     width: auto;
+    /* más pequeño en móvil */
     filter: drop-shadow(0 0 10px rgba(56, 189, 248, .45));
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
     .navbar-brand .logo-glow {
-        height: 112px;
+        height: 72px;
     }
+
+    /* desktop moderado */
 }
 
 .navbar-brand .fw-semibold {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
-@media (min-width: 992px) {
-    .navbar-brand .fw-semibold {
-        font-size: 1.8rem;
-    }
+/* Subrayado activo solo del ancho del texto */
+.navbar .nav-link {
+    position: relative;
+    display: inline-block;
+    padding: .45rem .6rem;
 }
 
-.navbar {
-    z-index: 1030;
+.navbar .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: .35em;
+    right: .35em;
+    bottom: -4px;
+    height: 3px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #00ff88, #38bdf8);
+    box-shadow: 0 0 8px rgba(0, 255, 136, .7), 0 0 12px rgba(56, 189, 248, .45);
 }
 
-/* Punto y coma estilo hacker */
-.code-semicolon {
-    font-size: 1.6em;
-    /* más grande que el texto */
-    color: #00ff88;
-    /* verde hacker */
-    font-weight: bold;
-    text-shadow: 0 0 6px #00ff88, 0 0 12px #00ff88;
-    margin-left: 2px;
+/* ===========================
+   Secciones / anclaje cómodo
+   =========================== */
+.site-section {
+    padding-top: 2rem;
+    padding-bottom: 2.25rem;
+    scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
+/* El hero no debe dejar huecos: sin padding arriba */
+header#home.site-section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
-/* Carousel */
+#portafolio,
+#contacto {
+    padding-top: 2.5rem;
+    scroll-margin-top: calc(var(--nav-h) + 36px);
+}
+
+/* ===========================
+   Hero / Carrusel pantalla completa real
+   - Usamos --vh (JS = innerHeight) para evitar bugs de móvil
+   =========================== */
+header#home,
+#techCarousel,
+#techCarousel .carousel-inner,
 #techCarousel .carousel-item {
-    background: #0b1220;
+    min-height: calc(var(--vh) * 100 - var(--nav-h));
 }
 
-/* Todas las imágenes del carrusel */
 .carousel-img {
     width: 100%;
-    height: calc(100vh - var(--nav-h));
-    /* ocupa casi toda la ventana */
+    height: calc(var(--vh) * 100 - var(--nav-h));
+    object-fit: cover;
+    /* llena alto y ancho; recorta si es necesario */
     object-position: center center;
     display: block;
+    max-height: none;
 }
 
-.object-cover {
-    object-fit: cover;
-    height: 80vh;
-}
-
+/* Caption legible sin tapar imagen */
 .bg-caption-dark {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .55), rgba(0, 0, 0, .65));
-    padding: 1rem 1.25rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .45), rgba(0, 0, 0, .6));
+    padding: .85rem 1rem;
     border-radius: .75rem;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(3px);
 }
 
-/* Cards */
+/* ===========================
+   Cards y elementos visuales
+   =========================== */
 .card-dark {
-    background: rgba(255, 255, 255, .04) !important;
-    border: 1px solid rgba(255, 255, 255, .12) !important;
-    border-radius: 16px;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, .25);
-    overflow: hidden;
+    background: rgba(15, 23, 42, .6);
+    border: 1px solid rgba(148, 163, 184, .18);
+    border-radius: 1rem;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, .25);
 }
 
 .icon-box {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: .8rem;
-    background: rgba(56, 189, 248, .12);
-    border: 1px solid rgba(255, 255, 255, .12);
-    margin-bottom: .6rem;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    border-radius: .75rem;
+    background: rgba(56, 189, 248, .08);
+    border: 1px solid rgba(56, 189, 248, .25);
 }
 
+/* Stack */
+.tech-icon {
+    font-size: 48px;
+    line-height: 1;
+    filter: drop-shadow(0 2px 10px rgba(56, 189, 248, .15));
+}
+
+/* Portafolio */
 .portfolio-img {
-    height: 220px;
-    object-fit: cover;
-    border-bottom: 1px solid rgba(255, 255, 255, .06);
     width: 100%;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
 }
 
-/* Formularios oscuros */
-.form-control {
-    background-color: var(--ink-2) !important;
-    color: #f8f9fa !important;
-    border: 1px solid rgba(255, 255, 255, .2);
+/* Tipografías utilitarias */
+.fw-black {
+    font-weight: 900;
 }
 
-.form-control:focus {
-    background-color: var(--ink-2) !important;
-    color: #fff !important;
-    border-color: var(--sky);
-    box-shadow: 0 0 0 .2rem rgba(56, 189, 248, .25);
+/* Footer */
+footer {
+    color: #94a3b8;
 }
 
-textarea.form-control {
-    resize: vertical;
+/* Utilitario (evitar que algo quede bajo la navbar) */
+.spacer-nav {
+    height: var(--nav-h);
 }
 
-
-/* Scroll suave y offset por navbar */
-:root {
-    --nav-h: 96px;
-}
-
-section[id],
-header[id] {
-    scroll-margin-top: calc(var(--nav-h) + 12px);
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-
-/* Desktop: expandir y cubrir */
-@media (min-width: 768px) {
-    .carousel-img {
-        object-fit: cover;
-        /* llena todo el ancho */
-        max-height: 90vh;
-        /* no se sale de pantalla */
+/* ===== Fix: ancla en móvil no tape el título ===== */
+@media (max-width: 576px) {
+    .site-section {
+        /* más margen de anclaje solo en móviles para que el H2 no quede bajo la navbar */
+        scroll-margin-top: calc(var(--nav-h) + 96px);
     }
 }
 
-/* Móvil: ocupar ancho completo pero más bajo */
-@media (max-width: 767px) {
-    .carousel-img {
-        object-fit: cover;
-        height: 60vh;
+/* ===========================
+   Stack con dinamismo (hover/tilt/glow)
+   =========================== */
+#stack .row {
+    gap: 0.75rem 0;
+}
+
+#stack .col {
+    /* se transformará como tile 3D */
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+.stack-anim {
+    background: rgba(15, 23, 42, .35);
+    border: 1px solid rgba(148, 163, 184, .18);
+    border-radius: 14px;
+    padding: 10px 6px 12px;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .22);
+    will-change: transform, box-shadow;
+}
+
+.stack-anim:hover {
+    background: rgba(15, 23, 42, .55);
+    border-color: rgba(56, 189, 248, .35);
+    box-shadow:
+        0 10px 28px rgba(0, 0, 0, .35),
+        0 0 18px rgba(56, 189, 248, .15);
+}
+
+/* Ícono: animaciones suaves + glow */
+.stack-anim .tech-icon {
+    display: inline-block;
+    transition: transform .18s ease, filter .18s ease, text-shadow .18s ease;
+    transform: translateZ(0);
+    filter: drop-shadow(0 2px 8px rgba(56, 189, 248, .18));
+}
+
+.stack-anim:hover .tech-icon {
+    transform: translateY(-6px) scale(1.08);
+    filter: drop-shadow(0 6px 18px rgba(56, 189, 248, .35));
+}
+
+/* Etiqueta del ícono */
+.stack-anim p.small {
+    margin-top: .4rem !important;
+    transition: transform .18s ease, opacity .18s ease;
+    opacity: .95;
+}
+
+.stack-anim:hover p.small {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+/* “Respiración” sutil cuando NO hay interacción (desktop) */
+@media (hover: hover) and (pointer: fine) {
+    .stack-anim:not(:hover) .tech-icon {
+        animation: stack-breathe 3.4s ease-in-out infinite;
+    }
+}
+
+@keyframes stack-breathe {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-3px) scale(1.03);
+    }
+}
+
+/* En móviles: mantenerlo sobrio, sin tilt agresivo */
+@media (max-width: 576px) {
+    .stack-anim {
+        padding: 12px 6px 14px;
+    }
+
+    .stack-anim:hover .tech-icon {
+        transform: translateY(-4px) scale(1.05);
+    }
+}
+
+/* Botón flotante WhatsApp */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    z-index: 1050;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .35);
+    color: #fff;
+}
+
+/* En móvil, un poco más grande */
+@media (max-width: 576px) {
+    .btn-whatsapp {
+        width: 64px;
+        height: 64px;
+        font-size: 32px;
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+/* Botón flotante: volver arriba */
+#btnBackTop {
+    position: fixed;
+    bottom: 90px;
+    /* más arriba que el botón de WhatsApp */
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    /* transparente */
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    z-index: 1040;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s;
+}
+
+#btnBackTop:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+}
+
+/* En móviles un poquito más grande */
+@media (max-width: 576px) {
+    #btnBackTop {
+        width: 56px;
+        height: 56px;
+        font-size: 26px;
+        bottom: 84px;
+        right: 16px;
     }
 }
