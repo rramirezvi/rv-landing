@@ -25,26 +25,46 @@ function smoothScrollTo(target, extraOffset) {
 
 
 // Marca activo en navbar según sección visible
-function setupSectionObserver() {
-    const sections = document.querySelectorAll('section[id], header[id]');
-    const links = document.querySelectorAll('.navbar .nav-link[href^="#"]');
-    const map = {};
-    links.forEach(a => { map[a.getAttribute('href')] = a; });
+// ===== Highlighter por scroll: oculta la línea en header/navbar/top =====
+function setupSectionHighlighter() {
+    const sections = Array.from(document.querySelectorAll('header[id], section[id]'));
+    const links = Array.from(document.querySelectorAll('.navbar .nav-link[href^="#"]'));
+    const linkMap = new Map(links.map(a => [a.getAttribute('href').trim(), a]));
 
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const id = '#' + entry.target.id;
-            const link = map[id];
-            if (!link) return;
-            if (entry.isIntersecting) {
-                links.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-            }
-        });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    const clearActive = () => links.forEach(l => l.classList.remove('active'));
 
-    sections.forEach(s => io.observe(s));
+    function updateActive() {
+        // altura real de navbar y línea de referencia justo debajo
+        const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72;
+        const probeY = navH + 24;
+
+        // 1) Si estamos arriba del todo → sin línea
+        if (window.scrollY < 10) { clearActive(); return; }
+
+        // 2) Buscar sección bajo la línea de referencia
+        let current = null;
+        for (const sec of sections) {
+            const r = sec.getBoundingClientRect();
+            if (r.top <= probeY && r.bottom > probeY) { current = sec; break; }
+        }
+
+        // 3) Si no hay sección (o es el header) → sin línea
+        if (!current || current.id === 'home') { clearActive(); return; }
+
+        // 4) Activar el link correspondiente
+        const link = linkMap.get('#' + current.id);
+        if (!link) return;
+        clearActive();
+        link.classList.add('active');
+    }
+
+    // Actualiza al cargar, al hacer scroll y al redimensionar
+    updateActive();
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    window.addEventListener('orientationchange', updateActive);
 }
+
 
 // Cerrar menú colapsable y bloquear scroll del body mientras está abierto
 function setupNavbarCollapseBehavior() {
@@ -152,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setupAnchorLinks();
 
     // Activo dinámico según scroll
-    setupSectionObserver();
+    setupSectionHighlighter();
     // Click en logo quita activo
     setupLogoClick();
     // >>> Activa dinamismo del Stack
