@@ -425,6 +425,9 @@ footer {
     -webkit-mask:
         radial-gradient(circle calc(50% - 4px), transparent 98%, #000 100%),
         linear-gradient(#000, #000);
+    mask:
+        radial-gradient(circle calc(50% - 4px), transparent 98%, #000 100%),
+        linear-gradient(#000, #000);
     -webkit-mask-composite: source-out, source-over;
     mask-composite: exclude, add;
     box-shadow:
@@ -458,6 +461,80 @@ footer {
 .text-sky {
     color: var(--sky);
     text-shadow: 0 0 6px rgba(56, 189, 248, .6);
+}
+
+/* Caja estilo terminal hacker */
+.terminal-box {
+    background-color: #0a0f1c;
+    /* fondo oscuro hacker */
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #00ff88;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 0 12px rgba(0, 255, 136, .3);
+}
+
+/* Cursor normal de escritura */
+.terminal-box::after {
+    content: "|";
+    position: absolute;
+    right: -10px;
+    animation: blink 0.8s infinite;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    50.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Animación de parpadeo especial del ícono */
+.blink-terminal {
+    animation: blinkIcon 1s infinite;
+}
+
+@keyframes blinkIcon {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    50.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* XS/SM: que NO se salga */
+@media (max-width: 576px) {
+    .terminal-box {
+        width: 100%;
+        /* ocupa todo el ancho de la columna */
+        white-space: normal;
+        /* permite salto de línea si hace falta */
+        word-break: break-word;
+        font-size: .95rem;
+        /* un poco más chico para que quepa mejor */
+    }
+
+    .terminal-box::after {
+        right: 6px;
+    }
 }
 
 /* Un poco más grande en pantallas amplias */
