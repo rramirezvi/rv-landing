@@ -407,3 +407,62 @@ footer {
     transform: scale(1.03);
     /* ligero zoom */
 }
+
+/* Avatar tech: aro neón y recorte perfecto */
+.avatar-tech {
+    --size: 96px;
+    /* cambia a 112px si lo quieres más grande */
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    position: relative;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+    /* aro neón con gradiente y máscara para dejar hueco interior */
+    background:
+        conic-gradient(from 0deg, #00ff88, #38bdf8, #00ff88) padding-box;
+    -webkit-mask:
+        radial-gradient(circle calc(50% - 4px), transparent 98%, #000 100%),
+        linear-gradient(#000, #000);
+    -webkit-mask-composite: source-out, source-over;
+    mask-composite: exclude, add;
+    box-shadow:
+        0 0 12px rgba(0, 255, 136, .25),
+        inset 0 0 10px rgba(56, 189, 248, .15);
+}
+
+.avatar-tech img {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+    filter: saturate(1.05) contrast(1.03);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, .45),
+        0 0 18px rgba(56, 189, 248, .28);
+    background: radial-gradient(120% 120% at 30% 20%, rgba(56, 189, 248, .08), rgba(0, 0, 0, 0));
+}
+
+/* Badge con look hacker */
+.bg-gradient-hacker {
+    background: linear-gradient(90deg, #00ff88, #38bdf8);
+    color: #0b1220;
+    border: 0;
+    box-shadow: 0 0 10px rgba(0, 255, 136, .25);
+}
+
+/* Texto motivacional con estilo hacker */
+.text-sky {
+    color: var(--sky);
+    text-shadow: 0 0 6px rgba(56, 189, 248, .6);
+}
+
+/* Un poco más grande en pantallas amplias */
+@media (min-width: 992px) {
+    .avatar-tech {
+        --size: 112px;
+    }
+}

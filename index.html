@@ -499,34 +499,71 @@ services:
     <section id="contacto" class="container pb-5 site-section">
         <h2 class="h1 fw-bold text-white">Contacto</h2>
         <div class="row g-4 mt-1">
+            <!-- FORMULARIO -->
             <div class="col-lg-6">
                 <form class="row g-3" onsubmit="return sendForm(event)">
-                    <div class="col-sm-6"><label class="form-label">Nombre</label><input
-                            class="form-control bg-ink-2 text-light border-secondary" required></div>
-                    <div class="col-sm-6"><label class="form-label">Correo</label><input type="email"
-                            class="form-control bg-ink-2 text-light border-secondary" required></div>
-                    <div class="col-12"><label class="form-label">Empresa</label><input
-                            class="form-control bg-ink-2 text-light border-secondary"></div>
-                    <div class="col-12"><label class="form-label">Proyecto</label><textarea rows="5"
-                            class="form-control bg-ink-2 text-light border-secondary" required></textarea></div>
-                    <div class="col-12"><button class="btn btn-primary btn-lg">Enviar</button></div>
+                    <div class="col-sm-6">
+                        <label class="form-label">Nombre</label>
+                        <input class="form-control bg-ink-2 text-light border-secondary" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form-label">Correo</label>
+                        <input type="email" class="form-control bg-ink-2 text-light border-secondary" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Empresa</label>
+                        <input class="form-control bg-ink-2 text-light border-secondary">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Proyecto</label>
+                        <textarea rows="5" class="form-control bg-ink-2 text-light border-secondary"
+                            required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary btn-lg">Enviar</button>
+                    </div>
                 </form>
             </div>
+
+            <!-- TARJETA DE INFORMACIÓN -->
             <div class="col-lg-6">
                 <div class="card card-dark h-100">
-                    <div class="card-body">
-                        <h3 class="h6 text-white mb-3">Información</h3>
-                        <ul class="list-unstyled text-secondary small mb-0">
-                            <li><i class="bi bi-geo-alt me-2"></i>Ecuador</li>
-                            <li><i class="bi bi-envelope me-2"></i>ricardo@ramirezvi.com</li>
-                            <li><i class="bi bi-github me-2"></i>github.com/rramirezvi</li>
-                            <li><i class="bi bi-browser-chrome me-2"></i>rramirezvi.github.io</li>
-                        </ul>
+                    <div class="card-body d-flex flex-column justify-content-between">
+
+                        <!-- Datos principales -->
+                        <div>
+                            <h3 class="h6 text-white mb-3">Información</h3>
+                            <ul class="list-unstyled text-secondary small mb-4">
+                                <li><i class="bi bi-geo-alt me-2"></i>Ecuador</li>
+                                <li><i class="bi bi-envelope me-2"></i>ricardo@ramirezvi.com</li>
+                                <li><i class="bi bi-github me-2"></i>github.com/rramirezvi</li>
+                                <li><i class="bi bi-browser-chrome me-2"></i>rramirezvi.github.io</li>
+                            </ul>
+                        </div>
+
+                        <!-- Avatar + mini bio -->
+                        <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+                            <div class="avatar-tech">
+                                <img src="assets/avatar/ricardo.png" alt="Ricardo Ramírez" loading="lazy">
+                            </div>
+                            <div>
+                                <h3 class="h6 text-white mb-1">Ing. Ricardo Ramírez</h3>
+                                <p class="text-secondary small mb-2">
+                                    Desarrollo de software • PostgreSQL • Integraciones
+                                </p>
+                                <span class="badge bg-gradient-hacker mb-2">
+                                    Nunca pares de compilar tus sueños <span class="bi bi-terminal-fill"></span>
+                                </span>
+                                <p class="fst-italic text-sky small">"Nunca te rindas"</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <footer class="border-top border-secondary py-4 text-center text-secondary small">
         © <span id="year"></span> ramirezvi — Tecnología & Consultoría
