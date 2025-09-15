@@ -19,7 +19,7 @@
             <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
                 <img src="assets/logoRv2.png" alt="RV" width="100" height="100" class="logo-glow">
                 <span class="fw-semibold">
-                    ramirezvi<span class="code-semicolon">;</span>
+                    ramirezvi<span class="semicolon">;</span>
                 </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -179,72 +179,321 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
             <div>
                 <h2 class="h1 fw-bold text-white mb-1">Portafolio</h2>
-                <p class="text-secondary mb-0">Módulos y sistemas recientes.</p>
+                <p class="text-secondary mb-0">Proyectos de backend: APIs, datos y rendimiento.</p>
             </div>
             <a href="#contacto" class="btn btn-outline-light">¿Quieres algo similar?</a>
         </div>
 
         <div class="row g-4 mt-1">
+            <!-- 1) API de Compromisos (Django REST) -->
             <div class="col-md-6 col-lg-4">
                 <div class="card card-dark h-100 overflow-hidden">
-                    <img src="assets/portfolio/p1.jpg" class="card-img-top portfolio-img"
-                        alt="Gestiones General por Día">
+                    <img src="assets/portafolio/apiPort.png" class="card-img-top portfolio-img" alt="API Compromisos">
                     <div class="card-body">
-                        <h3 class="h6 text-white">Gestiones General por Día</h3>
-                        <p class="text-secondary small">Dashboard con pivots y funciones PL/pgSQL.</p>
+                        <h3 class="h6 text-white mb-1">API de Compromisos</h3>
+                        <p class="text-secondary small mb-2">Django REST + JWT + PostgreSQL</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-secondary">Django</span>
+                            <span class="badge bg-secondary">DRF</span>
+                            <span class="badge bg-secondary">JWT</span>
+                            <span class="badge bg-secondary">PostgreSQL</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal"
+                            data-bs-target="#modalApiCompromisos">
+                            Ver detalles
+                        </button>
                     </div>
                 </div>
             </div>
+
+            <!-- 2) Optimización de Query (PostgreSQL) -->
             <div class="col-md-6 col-lg-4">
                 <div class="card card-dark h-100 overflow-hidden">
-                    <img src="assets/portfolio/p2.jpg" class="card-img-top portfolio-img"
+                    <img src="assets/portafolio/queryPort.png" class="card-img-top portfolio-img"
+                        alt="Optimización PostgreSQL">
+                    <div class="card-body">
+                        <h3 class="h6 text-white mb-1">Optimización de Query</h3>
+                        <p class="text-secondary small mb-2">Índices, EXPLAIN/ANALYZE, particiones</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-secondary">PostgreSQL</span>
+                            <span class="badge bg-secondary">PL/pgSQL</span>
+                            <span class="badge bg-secondary">Tuning</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal"
+                            data-bs-target="#modalPgOpt">
+                            Ver detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3) Normalización de Teléfonos (Python) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-dark h-100 overflow-hidden">
+                    <img src="assets/portafolio/pythonPort.png" class="card-img-top portfolio-img"
                         alt="Normalización de Teléfonos">
                     <div class="card-body">
-                        <h3 class="h6 text-white">Normalización de Teléfonos</h3>
-                        <p class="text-secondary small">Reglas y limpieza; reportes y logs.</p>
+                        <h3 class="h6 text-white mb-1">Normalización de Teléfonos</h3>
+                        <p class="text-secondary small mb-2">Limpieza + reglas del negocio</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-secondary">Python</span>
+                            <span class="badge bg-secondary">pandas</span>
+                            <span class="badge bg-secondary">ETL</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal"
+                            data-bs-target="#modalPhones">
+                            Ver detalles
+                        </button>
                     </div>
                 </div>
             </div>
+
+            <!-- 4) Integración VoIP (Wolkvox/Issabel) -->
             <div class="col-md-6 col-lg-4">
                 <div class="card card-dark h-100 overflow-hidden">
-                    <img src="assets/portfolio/p3.jpg" class="card-img-top portfolio-img"
-                        alt="Integración Wolkvox/Issabel">
+                    <img src="assets/portafolio/voipPort.png" class="card-img-top portfolio-img" alt="Integración VoIP">
                     <div class="card-body">
-                        <h3 class="h6 text-white">Integración Wolkvox/Issabel</h3>
-                        <p class="text-secondary small">Click-to-call, IVR y tracking de llamadas.</p>
+                        <h3 class="h6 text-white mb-1">Integración VoIP</h3>
+                        <p class="text-secondary small mb-2">Click-to-call + IVR + tracking</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-secondary">Asterisk/Issabel</span>
+                            <span class="badge bg-secondary">Wolkvox</span>
+                            <span class="badge bg-secondary">APIs</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalVoip">
+                            Ver detalles
+                        </button>
                     </div>
                 </div>
             </div>
+
+            <!-- 5) Eficiencia de Pagos (PL/pgSQL KPIs) -->
             <div class="col-md-6 col-lg-4">
                 <div class="card card-dark h-100 overflow-hidden">
-                    <img src="assets/portfolio/p4.jpg" class="card-img-top portfolio-img" alt="Eficiencia de Pagos">
+                    <img src="assets/portafolio/eficienciasPort1.PNG" class="card-img-top portfolio-img"
+                        alt="Eficiencia de Pagos">
                     <div class="card-body">
-                        <h3 class="h6 text-white">Eficiencia de Pagos</h3>
-                        <p class="text-secondary small">Metas, KPIs y medición mensual.</p>
+                        <h3 class="h6 text-white mb-1">Eficiencia de Pagos</h3>
+                        <p class="text-secondary small mb-2">KPIs y pivots en base de datos</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-secondary">PL/pgSQL</span>
+                            <span class="badge bg-secondary">KPIs</span>
+                            <span class="badge bg-secondary">Funciones</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalKPIs">
+                            Ver detalles
+                        </button>
                     </div>
                 </div>
             </div>
+
+            <!-- 6) ETL + Jobs (Cron + Docker) -->
             <div class="col-md-6 col-lg-4">
                 <div class="card card-dark h-100 overflow-hidden">
-                    <img src="assets/portfolio/p5.jpg" class="card-img-top portfolio-img" alt="API de Compromisos">
+                    <img src="assets/portafolio/etlPort.png" class="card-img-top portfolio-img" alt="ETL y Jobs">
                     <div class="card-body">
-                        <h3 class="h6 text-white">API de Compromisos</h3>
-                        <p class="text-secondary small">Recepción POST desde JLOU a Django.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card card-dark h-100 overflow-hidden">
-                    <img src="assets/portfolio/p6.jpg" class="card-img-top portfolio-img"
-                        alt="Consultas con Filtros Avanzados">
-                    <div class="card-body">
-                        <h3 class="h6 text-white">Consultas con Filtros Avanzados</h3>
-                        <p class="text-secondary small">Búsqueda dinámica por múltiples criterios.</p>
+                        <h3 class="h6 text-white mb-1">ETL + Jobs</h3>
+                        <p class="text-secondary small mb-2">Cargas, validaciones y orquestación</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge bg-secondary">Python</span>
+                            <span class="badge bg-secondary">Docker</span>
+                            <span class="badge bg-secondary">Cron</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-target="#modalETL">
+                            Ver detalles
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- ================= MODALES ================= -->
+
+        <!-- Modal API Compromisos -->
+        <div class="modal fade" id="modalApiCompromisos" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-ink-2 text-light border border-secondary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">API de Compromisos (Django REST)</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-secondary small mb-2"><strong>Reto:</strong> Recibir compromisos desde chatbot y
+                            guardarlos en PostgreSQL con validación y seguridad.</p>
+                        <ul class="small text-secondary mb-3">
+                            <li>Auth con JWT, rate limiting y validaciones de esquema</li>
+                            <li>Logs, trazabilidad y manejo de errores</li>
+                        </ul>
+                        <pre class="bg-dark p-3 rounded small"><code># views.py (DRF)
+class CompromisoView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        data = request.data
+        # TODO: validaciones
+        Compromiso.objects.create(
+            identificacion=data["identificacion"],
+            monto=data["monto_compromiso"],
+            fecha=data["fecha_compromiso"],
+            telefono=data.get("telefono"),
+            resumen=data.get("resumen_del_chat","")
+        )
+        return Response({"status":"ok"}, status=201)
+</code></pre>
+                        <p class="small">📈 <em>Impacto:</em> Integración estable (99.9% uptime), validación temprana y
+                            menos rechazos por datos incompletos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Optimización PostgreSQL -->
+        <div class="modal fade" id="modalPgOpt" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-ink-2 text-light border border-secondary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Optimización de Query (PostgreSQL)</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-secondary small mb-2"><strong>Reto:</strong> Consulta de reportes tardaba ~5s.
+                        </p>
+                        <ul class="small text-secondary mb-3">
+                            <li>Se analizó plan con <code>EXPLAIN (ANALYZE, BUFFERS)</code></li>
+                            <li>Índices compuestos + partición por mes</li>
+                        </ul>
+                        <pre class="bg-dark p-3 rounded small"><code>-- Índice compuesto clave
+CREATE INDEX CONCURRENTLY idx_gestiones_deudor_fecha
+ON lc_gestiones (id_deudor, fecha_gestion DESC)
+INCLUDE (id_tipo_resultado);
+
+-- Ejemplo de hint lógico: limitar rango por fecha
+SELECT ...
+FROM lc_gestiones
+WHERE fecha_gestion &gt;= date_trunc('month', now())::date
+  AND fecha_gestion &lt; (date_trunc('month', now()) + INTERVAL '1 month')::date;
+</code></pre>
+                        <p class="small">📉 <em>Resultado:</em> 5s → <strong>180ms</strong> (×27.7 más rápido).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Normalización Teléfonos -->
+        <div class="modal fade" id="modalPhones" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-ink-2 text-light border border-secondary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Normalización de Teléfonos (Python)</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-secondary small mb-2"><strong>Reto:</strong> Datos sucios, duplicados y formatos
+                            mixtos.</p>
+                        <ul class="small text-secondary mb-3">
+                            <li>Reglas por longitud, prefijos y eliminación de repetidos</li>
+                            <li>Pipeline reproducible con logs</li>
+                        </ul>
+                        <pre class="bg-dark p-3 rounded small"><code># phones_clean.py (extracto)
+def normalize_phone(raw):
+    s = re.sub(r'\D', '', raw or '')
+    # TODO: reglas específicas Ecuador (09 móviles, 0 fijos, etc.)
+    return s or None
+</code></pre>
+                        <p class="small">✅ <em>Resultado:</em> +20% contactos válidos y menos llamadas desperdiciadas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Integración VoIP -->
+        <div class="modal fade" id="modalVoip" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-ink-2 text-light border border-secondary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Integración VoIP (Wolkvox / Issabel)</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-secondary small mb-2"><strong>Reto:</strong> Unificar click-to-call, IVR y
+                            tracking.</p>
+                        <ul class="small text-secondary mb-3">
+                            <li>Click-to-call desde la app (Issabel/Zopier)</li>
+                            <li>Registro de llamadas y resultados (IVR/Manual)</li>
+                        </ul>
+                        <pre class="bg-dark p-3 rounded small"><code>// Front: disparo
+$('#btnCall').on('click', () =&gt; window.location.href = 'sip:EXT@IP_PBX');
+
+// Back: guardar call log (Servlet/DAO o Django view)
+saveCallLog(id_deudor, numero, estado, duracion);
+</code></pre>
+                        <p class="small">📊 <em>Impacto:</em> Trazabilidad end-to-end y reporting por gestor/segmento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal KPIs / Eficiencia -->
+        <div class="modal fade" id="modalKPIs" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-ink-2 text-light border border-secondary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Eficiencia de Pagos (PL/pgSQL)</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-secondary small mb-2"><strong>Reto:</strong> KPIs M/M y pivots por
+                            día/gestor/segmento.</p>
+                        <pre class="bg-dark p-3 rounded small"><code>CREATE OR REPLACE FUNCTION eficiencia_mes(mes int, anio int)
+RETURNS TABLE(gestor text, meta numeric, recupero numeric, eficiencia text) AS $$
+BEGIN
+  RETURN QUERY
+  SELECT g.nombre, m.meta_1, SUM(p.monto),
+         ROUND(SUM(p.monto)*100/m.meta_1, 2) || '%'
+  FROM metas m
+  JOIN pagos p ON p.fecha BETWEEN m.fecha_inicio AND m.fecha_cierre
+  JOIN gestores g ON g.id = p.id_gestor
+  GROUP BY g.nombre, m.meta_1;
+END; $$ LANGUAGE plpgsql;
+</code></pre>
+                        <p class="small">📈 <em>Resultado:</em> Métricas consistentes en BD, sin depender del front.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal ETL -->
+        <div class="modal fade" id="modalETL" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content bg-ink-2 text-light border border-secondary">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ETL + Jobs (Docker + Cron)</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-secondary small mb-2"><strong>Reto:</strong> Pipeline robusto para cargas
+                            diarias.</p>
+                        <pre class="bg-dark p-3 rounded small"><code># docker-compose.yml (extracto)
+services:
+  etl:
+    build: .
+    volumes: ["./jobs:/app/jobs"]
+    environment:
+      - DB_URL=postgresql://user:pass@db:5432/app
+    command: ["python","jobs/run_all.py"]
+    restart: on-failure
+</code></pre>
+                        <p class="small">🛡️ <em>Resultado:</em> Cargas idempotentes, alertas en fallos y tiempos
+                            previsibles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
+
 
     <!-- CONTACTO -->
     <section id="contacto" class="container pb-5 site-section">
